@@ -2,6 +2,7 @@
 
 #Imports Here;
 import random
+import pyperclip
 
 # Create an empty dictionary
 
@@ -15,47 +16,36 @@ webby = input("What website is the password for?: ")
 
 # Create list of letters
 
-Letters = "abcdefghijklmnopqrstuvwzyz"
+Pass = "abcdefghijklmnopqrstuvwzyz1234567890!?@#~$`;+=%&*-_/:<>|"
 
 # Code that chooses 7 random Letters
 
-randLetters = random.choice(Letters)
+randPass = random.choice(Pass)
 
-randLetters = ""
+randPass = ""
 
-for let in range(7):
-    randLetters += random.choice(Letters)
-print(randLetters)
+for let in range(12):
+    randPass += random.choice(Pass)
+print(f"Here is your password for {webby}: ", randPass)
 
-# Create list of numbers
+# Copy New Password
 
-Numbers = "1234567890"
+pyperclip.copy(randPass)
 
-# Code that chooses 3 random numbers
+# Tell the user about the copy
 
-randNumbers = random.choice(Numbers)
+print("Your new password had been copied to the clipboard!\n")
 
-randNumbers = ""
+# Add the website and password to dict
 
-for num in range(3):
-    randNumbers += random.choice(Numbers)
-print(randNumbers)
-
-# Create list of characters
-
-Characters = "!?@#~$`;+=%&*-_/:<>|"
-
-# Code that chooses 2 random characters
-
-randCharacters = random.choice(Characters)
-
-randCharacters = ""
-
-for char in range(2):
-    randCharacters += random.choice(Characters)
-print(randCharacters)
-
-#
+webpass[webby] = randPass
 
 
-# Copy password
+print("All passwords:")
+print(f"{webby}: {randPass}")
+
+# Ask if they want to make another password
+
+choice = input("Create another password? (y/n): ")
+
+
